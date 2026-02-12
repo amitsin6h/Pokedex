@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokédex
+
+A modern Pokédex built with **Next.js**, **TypeScript**, **Tailwind CSS**, and the **PokéAPI GraphQL** endpoint.
+
+## Features
+
+- **Browse** — Paginated grid of 1025 Pokémon with official artwork
+- **Search** — Debounced name search
+- **Filter** — By type (18 types) and generation (Gen I–IX)
+- **Sort** — By Pokédex #, name, or base stat total (asc/desc)
+- **Detail Page** — Stats bars + radar chart, abilities, profile info, evolution chain
+- **Compare** — Select up to 4 Pokémon for side-by-side stat comparison
+
+## Tech Stack
+
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Data | PokéAPI GraphQL (`beta.pokeapi.co/graphql/v1beta`) |
+| GraphQL Client | graphql-request |
+| Charts | Recharts |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── page.tsx                ← Home grid with search/filter/sort
+│   ├── pokemon/[id]/page.tsx   ← Detail page
+│   └── compare/page.tsx        ← Comparison page
+├── components/                 ← PokemonCard, SearchFilterBar, StatsRadar, EvolutionChain, etc.
+├── context/
+│   └── CompareContext.tsx      ← Compare cart state (up to 4)
+└── lib/
+    ├── graphql-client.ts       ← GraphQL client
+    ├── queries.ts              ← All GraphQL queries
+    ├── types.ts                ← TypeScript interfaces
+    ├── constants.ts            ← Type colors, stat labels
+    └── utils.ts                ← Formatting helpers
+```
