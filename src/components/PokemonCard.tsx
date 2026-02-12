@@ -44,7 +44,7 @@ export default function PokemonCard({ pokemon }: Props) {
           className={`absolute top-3 right-3 z-10 flex items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-medium transition-all ${
             inCompare
               ? "bg-indigo-500 text-white shadow-sm"
-              : "bg-gray-100 text-gray-500 opacity-0 group-hover:opacity-100 hover:bg-indigo-100 hover:text-indigo-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-indigo-950 dark:hover:text-indigo-400"
+              : "bg-gray-100 text-gray-500 hover:bg-indigo-100 hover:text-indigo-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-indigo-950 dark:hover:text-indigo-400"
           }`}
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
